@@ -1,0 +1,6 @@
+AC_INIT([src/main.c])
+AM_INIT_AUTOMAKE([checkers],[0.1])
+AC_CONFIG_HEADERS([config.h])
+AC_PROG_CC
+AC_PROG_RANLIB
+AC_OUTPUT(Makefile src/Makefile src/lib/Makefile)
