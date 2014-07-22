@@ -28,7 +28,7 @@ int tie(int current,struct user **users){
     return -1;
   }
 
-  if(recv_sdata(&answer)<0){
+  if(recv_sdata(dest.c_msg.soc,&answer)<0){
     return -1;
   }
   if(!strcmp(answer.msg,"Yes") || !strcmp(answer.msg,"Y") || 
