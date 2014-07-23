@@ -1,5 +1,10 @@
-int check_simple(struct move_data move, struct cell*** board){
+int check_simple(struct move_data move, struct cell*** board, int cur_user){
   int r = 1, forward, backward, right, left, i, j;
+
+  /* check the cur_user */
+  if (board[move.i1][move.j1].ch.color != (cur_user + 1)){
+    r =0;
+  }
 
   if (board[move.i1][move.j1].ch.king == 0){ //for not king
     if (abs(move.j1 - move.j2) != 1){
