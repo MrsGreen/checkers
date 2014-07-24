@@ -1,3 +1,4 @@
+#include "make_move.h"
 int kill_move(struct game_data gdata, int cur_user){
   int check;
   struct sdata dest;

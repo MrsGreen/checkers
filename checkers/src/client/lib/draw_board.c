@@ -1,3 +1,5 @@
+#include "screen.h"
+
 /*
 *function for drawing game board and checkers
 */

@@ -1,3 +1,4 @@
+#include "make_move.h"
 void check_kill(struct move_list** kill_list, struct cell*** board, int cur_user){
   int i,j;
   for (i = 0; i < 7; i++){

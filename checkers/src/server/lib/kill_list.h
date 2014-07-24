@@ -1,5 +1,5 @@
-#include"../../inc/global.h"
-#include<malloc.h>
+#include "../../inc/global.h"
+#include <malloc.h>
 
 void list_push(struct move_list **,struct move_data);
 void list_pop(struct move_list **,struct move_data);

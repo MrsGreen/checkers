@@ -1,3 +1,4 @@
+#include "make_move.h"
 int simple_move(struct move_data move, struct cell*** board, int cur_user){
   int check;
   struct sdata dest;

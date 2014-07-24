@@ -1,4 +1,4 @@
-//#include <>
+#include "../../inc/global.h"
 
 void draw_msg(char*);
 void draw_board(struct cell**);

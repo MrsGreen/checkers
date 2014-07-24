@@ -1,4 +1,5 @@
 #include <math.h>
+#include "../../inc/global.h"
 
 int make_move(struct game_data, int);
 void check_king(int, int, struct cell***);

@@ -1,4 +1,4 @@
-#include"check_msg.h"
+#include "check_msg.h"
 /*
  * Parse user's message. Copy user's move from msg to move
  * \param msg - user's message

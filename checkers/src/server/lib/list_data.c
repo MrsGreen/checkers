@@ -1,4 +1,4 @@
-#include"kill_list.h"
+#include "kill_list.h"
 /*
  * check val in list
  * \param head - head of list

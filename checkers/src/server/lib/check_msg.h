@@ -1,5 +1,5 @@
-#include<string.h>
-#include"../../inc/global.h"
+#include <string.h>
+#include "../../inc/global.h"
 
 int check_msg(char*, struct move_data*);
 int help(int);

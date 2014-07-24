@@ -1,4 +1,4 @@
-#include"kill_list.h"
+#include "kill_list.h"
 /*
  * pop value val from list head
  * \param head - head of list

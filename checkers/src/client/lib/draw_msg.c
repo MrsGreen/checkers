@@ -1,3 +1,5 @@
+#include "screen.h"
+
 /*
 *function for print a received message
 */

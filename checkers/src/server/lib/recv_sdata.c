@@ -1,4 +1,4 @@
-#include"sdata.h"
+#include "sdata.h"
 /*
  * receive data from client
  * \param soc - socket

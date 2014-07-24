@@ -1,4 +1,4 @@
-#include"check_msg.h"
+#include "check_msg.h"
 /*
  * Send help message
  * \param soc - socket

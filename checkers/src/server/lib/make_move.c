@@ -1,3 +1,5 @@
+#include "make_move.h"
+
 int make_move(struct game_data gdata, int cur_user){
   int r;
   if (gdata.kill_list != NULL){
