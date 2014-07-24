@@ -86,16 +86,33 @@ int main(){
                memcpy(&game.board,&board,sizeof(board));
                memcpy(&game.kill_list,kill_list,sizeof(kill_list));
                memcpy(&game.move,&move.sizeof(move));
-               r2=make_move(game,curr_user);//curr_user-???
+               r2=make_move(game,cur_user);//curr_user-???
                break;
         case 1:
-               r2=help(users[curr_user].soc);
+               r2=help(users[cur_user].soc);
                break;
         case 2:
                r2=tie(cur_user,&users);
                break;
+        case 3:
+               r2=give_up(cur_user,&users);
+               break;
+        default:
+               r2=hint(users[cur_user].soc);
+               break;
+      }
+      if(r2==1){
+        cur_user=1;
+        break;
       }
     }
   }
+  memcpy(&serv_msg,0,sizeof(serv_msg));
+  serv_msg.c_msg.soc=users[curr_user].soc;
+  help(users[curr_user].soc);
+  memcpy(&serv_msg.board,&board,sizeof(board));
+  serv_msg.flag=1;
+  close(s_sock);
+
   return 0;
 }
