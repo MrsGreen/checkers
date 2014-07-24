@@ -22,10 +22,16 @@ void check_kill2(int i1, int j1, struct move_list** kill_list, struct cell*** bo
     if (((board[i][j].ch.color == 1) && (cur_user == 1)) || ((board[i][j].ch.color == 2) && (cur_user == 0))){
       count_kill += 1; //meet opponent checker
     }
+    if ((board[i][j].empty == 1) && (count_kill == 0) && (board[i1][j1].ch.king == 0)){
+      break;
+    }
     if ((board[i][j].empty == 1) && (count_kill == 1)){
       move.i2 = i;
       move.j2 = j;
       list_add(kill_list, move); //add to kill-list
+      if (board[i1][j1].ch.king == 0){
+        break;
+      }
     }
   }
 
@@ -46,10 +52,16 @@ void check_kill2(int i1, int j1, struct move_list** kill_list, struct cell*** bo
     if (((board[i][j].ch.color == 1) && (cur_user == 1)) || ((board[i][j].ch.color == 2) && (cur_user == 0))){
       count_kill += 1; //meet opponent checker
     }
+    if ((board[i][j].empty == 1) && (count_kill == 0) && (board[i1][j1].ch.king == 0)){
+      break;
+    }
     if ((board[i][j].empty == 1) && (count_kill == 1)){
       move.i2 = i;
       move.j2 = j;
       list_add(kill_list, move); //add to kill-list
+      if (board[i1][j1].ch.king == 0){
+        break;
+      }
     }
   }
 
@@ -70,10 +82,16 @@ void check_kill2(int i1, int j1, struct move_list** kill_list, struct cell*** bo
     if (((board[i][j].ch.color == 1) && (cur_user == 1)) || ((board[i][j].ch.color == 2) && (cur_user == 0))){
       count_kill += 1; //meet opponent checker
     }
+    if ((board[i][j].empty == 1) && (count_kill == 0) && (board[i1][j1].ch.king == 0)){
+      break;
+    }
     if ((board[i][j].empty == 1) && (count_kill == 1)){
       move.i2 = i;
       move.j2 = j;
       list_add(kill_list, move); //add to kill-list
+      if (board[i1][j1].ch.king == 0){
+        break;
+      }
     }
   }
 
@@ -94,10 +112,16 @@ void check_kill2(int i1, int j1, struct move_list** kill_list, struct cell*** bo
     if (((board[i][j].ch.color == 1) && (cur_user == 1)) || ((board[i][j].ch.color == 2) && (cur_user == 0))){
       count_kill += 1; //meet opponent checker
     }
+    if ((board[i][j].empty == 1) && (count_kill == 0) && (board[i1][j1].ch.king == 0)){
+      break;
+    }
     if ((board[i][j].empty == 1) && (count_kill == 1)){
       move.i2 = i;
       move.j2 = j;
       list_add(kill_list, move); //add to kill-list
+      if (board[i1][j1].ch.king == 0){
+        break;
+      }
     }
   }
 
