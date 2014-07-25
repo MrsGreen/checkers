@@ -1,5 +1,5 @@
 #include "make_move.h"
-int check_simple(struct move_data move, struct cell*** board, int cur_user){
+int check_simple(struct move_data move, struct cell board[8][8], int cur_user){
   int r = 1, forward, backward, right, left, i, j;
 
   /* check the cur_user */

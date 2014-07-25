@@ -3,7 +3,7 @@
 /*
 *function for drawing game board and checkers
 */
-void draw_board(struct cell** board){
+void draw_board(struct cell board[8][8]){
   int i, j;
 
   printf("\n ");
@@ -13,20 +13,20 @@ void draw_board(struct cell** board){
   
   printf("\n  ");
   for (i = 0; i < 8; i++){
-    printf("--"); //border
+    printf("__"); //border
   }
   
   for (i = 0; i < 8; i++){
     printf("\n%d|", 8-i);
     for (j = 0; j < 8; j++){
-      if(board.empty == 0){ //offside cells
-        printf("  ");
+      if(board[i][j].empty == 0){ //offside cells
+        printf("--");
       }
-      if(board.empty == 1) //game empty cells
+      if(board[i][j].empty == 1) //game empty cells
         printf("##");
-      if(board.empty == 2){ //game not empty cells
-        if(board.ch.color == 1){ //white
-          if (board.ch.king == 0){ //not king
+      if(board[i][j].empty == 2){ //game not empty cells
+        if(board[i][j].ch.color == 1){ //white
+          if (board[i][j].ch.king == 0){ //not king
             printf("w ");
           }
           else{
@@ -34,8 +34,8 @@ void draw_board(struct cell** board){
           }
         }
         else {
-          if (board.ch.color == 2){ //black
-            if (board.ch.king == 0){ //not king
+          if (board[i][j].ch.color == 2){ //black
+            if (board[i][j].ch.king == 0){ //not king
               printf("b ");
             }
             else{

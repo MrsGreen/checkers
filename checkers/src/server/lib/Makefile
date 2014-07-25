@@ -104,6 +104,11 @@ libinit_a_AR = $(AR) $(ARFLAGS)
 libinit_a_LIBADD =
 am_libinit_a_OBJECTS = init_board.$(OBJEXT)
 libinit_a_OBJECTS = $(am_libinit_a_OBJECTS)
+libkill_list_a_AR = $(AR) $(ARFLAGS)
+libkill_list_a_LIBADD =
+am_libkill_list_a_OBJECTS = list_push.$(OBJEXT) list_pop.$(OBJEXT) \
+	list_add.$(OBJEXT) list_clear.$(OBJEXT) list_data.$(OBJEXT)
+libkill_list_a_OBJECTS = $(am_libkill_list_a_OBJECTS)
 libmake_move_a_AR = $(AR) $(ARFLAGS)
 libmake_move_a_LIBADD =
 am_libmake_move_a_OBJECTS = make_move.$(OBJEXT) check_king.$(OBJEXT) \
@@ -154,9 +159,11 @@ am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = $(libcheck_msg_a_SOURCES) $(libinit_a_SOURCES) \
-	$(libmake_move_a_SOURCES) $(libsdata_a_SOURCES)
+	$(libkill_list_a_SOURCES) $(libmake_move_a_SOURCES) \
+	$(libsdata_a_SOURCES)
 DIST_SOURCES = $(libcheck_msg_a_SOURCES) $(libinit_a_SOURCES) \
-	$(libmake_move_a_SOURCES) $(libsdata_a_SOURCES)
+	$(libkill_list_a_SOURCES) $(libmake_move_a_SOURCES) \
+	$(libsdata_a_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -182,13 +189,13 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} "/home/natalia/eltex/checkers/checkers temp/missing" aclocal-1.14
+ACLOCAL = ${SHELL} /home/natalia/eltex/checkers/checkers/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} "/home/natalia/eltex/checkers/checkers temp/missing" autoconf
-AUTOHEADER = ${SHELL} "/home/natalia/eltex/checkers/checkers temp/missing" autoheader
-AUTOMAKE = ${SHELL} "/home/natalia/eltex/checkers/checkers temp/missing" automake-1.14
+AUTOCONF = ${SHELL} /home/natalia/eltex/checkers/checkers/missing autoconf
+AUTOHEADER = ${SHELL} /home/natalia/eltex/checkers/checkers/missing autoheader
+AUTOMAKE = ${SHELL} /home/natalia/eltex/checkers/checkers/missing automake-1.14
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -221,7 +228,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} "/home/natalia/eltex/checkers/checkers temp/missing" makeinfo
+MAKEINFO = ${SHELL} /home/natalia/eltex/checkers/checkers/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -244,10 +251,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.1
-abs_builddir = /home/natalia/eltex/checkers/checkers temp/src/server/lib
-abs_srcdir = /home/natalia/eltex/checkers/checkers temp/src/server/lib
-abs_top_builddir = /home/natalia/eltex/checkers/checkers temp
-abs_top_srcdir = /home/natalia/eltex/checkers/checkers temp
+abs_builddir = /home/natalia/eltex/checkers/checkers/src/server/lib
+abs_srcdir = /home/natalia/eltex/checkers/checkers/src/server/lib
+abs_top_builddir = /home/natalia/eltex/checkers/checkers
+abs_top_srcdir = /home/natalia/eltex/checkers/checkers
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -276,7 +283,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} '/home/natalia/eltex/checkers/checkers temp/install-sh'
+install_sh = ${SHELL} /home/natalia/eltex/checkers/checkers/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -296,11 +303,12 @@ target_alias =
 top_build_prefix = ../../../
 top_builddir = ../../..
 top_srcdir = ../../..
-noinst_LIBRARIES = libinit.a libcheck_msg.a libmake_move.a libsdata.a
+noinst_LIBRARIES = libinit.a libcheck_msg.a libmake_move.a libsdata.a libkill_list.a
 libinit_a_SOURCES = init_board.c init.h
 libcheck_msg_a_SOURCES = check_msg.c help.c tie.c give_up.c hint.c check_msg.h
 libmake_move_a_SOURCES = make_move.c check_king.c set_board.c simple_move.c check_simple.c kill_move.c check_kill2.c check_kill.c make_move.h
 libsdata_a_SOURCES = send_sdata.c recv_sdata.c sdata.h
+libkill_list_a_SOURCES = list_push.c list_pop.c list_add.c list_clear.c list_data.c kill_list.h
 all: all-am
 
 .SUFFIXES:
@@ -349,6 +357,11 @@ libinit.a: $(libinit_a_OBJECTS) $(libinit_a_DEPENDENCIES) $(EXTRA_libinit_a_DEPE
 	$(AM_V_AR)$(libinit_a_AR) libinit.a $(libinit_a_OBJECTS) $(libinit_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libinit.a
 
+libkill_list.a: $(libkill_list_a_OBJECTS) $(libkill_list_a_DEPENDENCIES) $(EXTRA_libkill_list_a_DEPENDENCIES) 
+	$(AM_V_at)-rm -f libkill_list.a
+	$(AM_V_AR)$(libkill_list_a_AR) libkill_list.a $(libkill_list_a_OBJECTS) $(libkill_list_a_LIBADD)
+	$(AM_V_at)$(RANLIB) libkill_list.a
+
 libmake_move.a: $(libmake_move_a_OBJECTS) $(libmake_move_a_DEPENDENCIES) $(EXTRA_libmake_move_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libmake_move.a
 	$(AM_V_AR)$(libmake_move_a_AR) libmake_move.a $(libmake_move_a_OBJECTS) $(libmake_move_a_LIBADD)
@@ -375,6 +388,11 @@ include ./$(DEPDIR)/help.Po
 include ./$(DEPDIR)/hint.Po
 include ./$(DEPDIR)/init_board.Po
 include ./$(DEPDIR)/kill_move.Po
+include ./$(DEPDIR)/list_add.Po
+include ./$(DEPDIR)/list_clear.Po
+include ./$(DEPDIR)/list_data.Po
+include ./$(DEPDIR)/list_pop.Po
+include ./$(DEPDIR)/list_push.Po
 include ./$(DEPDIR)/make_move.Po
 include ./$(DEPDIR)/recv_sdata.Po
 include ./$(DEPDIR)/send_sdata.Po

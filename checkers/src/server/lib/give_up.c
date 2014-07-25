@@ -9,7 +9,7 @@ int give_up(int current,struct user **users){
   char text[]=" gamer give up\n";
   struct sdata dest;
 
-  memset(dest,0,sizeof(dest));
+  memset(&dest,0,sizeof(dest));
   if(current==0){
     strcpy(dest.c_msg.msg,"White");
   }
@@ -22,6 +22,5 @@ int give_up(int current,struct user **users){
   if(send_sdata(dest)<0){
     return -1;
   }
-  users[current]->count_ch=0;
   return 1;
 }

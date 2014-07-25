@@ -1,5 +1,5 @@
 #include "make_move.h"
-void check_kill2(int i1, int j1, struct move_list** kill_list, struct cell*** board, int cur_user){
+void check_kill2(int i1, int j1, struct move_list** kill_list, struct cell board[8][8], int cur_user){
   int count_kill, i, j, max_i, max_j;
   struct move_data move;
   move.i1 = i1;

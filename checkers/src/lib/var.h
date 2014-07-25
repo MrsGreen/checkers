@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /* global vars */
 #define MSG_MAX 1024
@@ -32,7 +33,7 @@ struct move_list{
 };
 
 struct game_data{
-  struct cell ***board;
+  struct cell board[8][8];
   struct move_data *kill_list;
   struct move_data move;
 };
@@ -40,7 +41,6 @@ struct game_data{
 struct user{
   int soc;
   int color;
-  int count_ch;
 };
 
 struct cdata{
@@ -51,7 +51,6 @@ struct cdata{
 struct sdata{
   struct cell board[8][8];
   struct cdata c_msg;
-  int flag;
 };
 
 /* global fun */

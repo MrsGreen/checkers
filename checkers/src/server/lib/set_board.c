@@ -1,5 +1,5 @@
 #include "make_move.h"
-void set_board(struct move_data move, struct cell*** board){
+void set_board(struct move_data move, struct cell board[8][8]){
   int i, j, forward, backward, right, left;
 
   /* for simple_move */

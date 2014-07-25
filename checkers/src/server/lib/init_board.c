@@ -1,11 +1,10 @@
 #include "init.h"
 
-void init_board(struct cell*** board){
+void init_board(struct cell board[8][8]){
   int i,j;
-
-  for (i = 0; i < 7; i++){
-    for (j = 0; j < 7; j++){
-
+  
+  for (i = 0; i < 8; i++){
+    for (j = 0; j < 8; j++){
       board[i][j].ch.king = 0;
 
       if (((i + j) % 2) == 0){ 

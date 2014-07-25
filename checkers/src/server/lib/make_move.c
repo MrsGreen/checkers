@@ -6,7 +6,7 @@ int make_move(struct game_data gdata, int cur_user){
     r = kill_move(gdata, cur_user);
   }
   else{
-    r = simple_move(gdata.move, &gdata.board, cur_user);
+    r = simple_move(gdata.move, gdata.board, cur_user);
   }
   return r;
 }

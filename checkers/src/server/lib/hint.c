@@ -6,11 +6,11 @@
  */
 int hint(int soc){
   struct sdata data;
-  char text[]="Wrong message format. Please type help\n"
+  char text[]="Wrong message format. Please type help\n";
 
-  memset(data,0,sizeof(data));
+  memset(&data,0,sizeof(data));
   strcpy(data.c_msg.msg,text);
-  data.c_msg.msg.soc=soc;
+  data.c_msg.soc=soc;
 
   if(send_sdata(data)<0){
     return -1;

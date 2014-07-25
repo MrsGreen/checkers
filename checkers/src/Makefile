@@ -78,7 +78,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = x86_64-unknown-linux-gnu
 host_triplet = x86_64-unknown-linux-gnu
-bin_PROGRAMS = server$(EXEEXT) client$(EXEEXT)
+bin_PROGRAMS = serverexe$(EXEEXT) clientexe$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(srcdir)/config.h.in $(top_srcdir)/depcomp
@@ -92,24 +92,24 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_client_OBJECTS = client.$(OBJEXT)
-client_OBJECTS = $(am_client_OBJECTS)
-client_LDADD = $(LDADD)
-client_DEPENDENCIES = lib/libvar.a server/lib/libinit.a \
+am_clientexe_OBJECTS = client.$(OBJEXT)
+clientexe_OBJECTS = $(am_clientexe_OBJECTS)
+clientexe_LDADD = $(LDADD)
+clientexe_DEPENDENCIES = lib/libvar.a server/lib/libinit.a \
 	server/lib/libcheck_msg.a server/lib/libmake_move.a \
-	server/lib/libsdata.a client/lib/libscreen.a \
-	client/lib/libcdata.a
+	server/lib/libsdata.a server/lib/libkill_list.a \
+	client/lib/libscreen.a client/lib/libcdata.a
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-am_server_OBJECTS = server.$(OBJEXT)
-server_OBJECTS = $(am_server_OBJECTS)
-server_LDADD = $(LDADD)
-server_DEPENDENCIES = lib/libvar.a server/lib/libinit.a \
+am_serverexe_OBJECTS = server.$(OBJEXT)
+serverexe_OBJECTS = $(am_serverexe_OBJECTS)
+serverexe_LDADD = $(LDADD)
+serverexe_DEPENDENCIES = lib/libvar.a server/lib/libinit.a \
 	server/lib/libcheck_msg.a server/lib/libmake_move.a \
-	server/lib/libsdata.a client/lib/libscreen.a \
-	client/lib/libcdata.a
+	server/lib/libsdata.a server/lib/libkill_list.a \
+	client/lib/libscreen.a client/lib/libcdata.a
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -144,8 +144,8 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(client_SOURCES) $(server_SOURCES)
-DIST_SOURCES = $(client_SOURCES) $(server_SOURCES)
+SOURCES = $(clientexe_SOURCES) $(serverexe_SOURCES)
+DIST_SOURCES = $(clientexe_SOURCES) $(serverexe_SOURCES)
 RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \
 	ctags-recursive dvi-recursive html-recursive info-recursive \
 	install-data-recursive install-dvi-recursive \
@@ -214,13 +214,13 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} "/home/natalia/eltex/checkers/checkers temp/missing" aclocal-1.14
+ACLOCAL = ${SHELL} /home/natalia/eltex/checkers/checkers/missing aclocal-1.14
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
 AR = ar
-AUTOCONF = ${SHELL} "/home/natalia/eltex/checkers/checkers temp/missing" autoconf
-AUTOHEADER = ${SHELL} "/home/natalia/eltex/checkers/checkers temp/missing" autoheader
-AUTOMAKE = ${SHELL} "/home/natalia/eltex/checkers/checkers temp/missing" automake-1.14
+AUTOCONF = ${SHELL} /home/natalia/eltex/checkers/checkers/missing autoconf
+AUTOHEADER = ${SHELL} /home/natalia/eltex/checkers/checkers/missing autoheader
+AUTOMAKE = ${SHELL} /home/natalia/eltex/checkers/checkers/missing automake-1.14
 AWK = mawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -253,7 +253,7 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} "/home/natalia/eltex/checkers/checkers temp/missing" makeinfo
+MAKEINFO = ${SHELL} /home/natalia/eltex/checkers/checkers/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 NM = /usr/bin/nm -B
@@ -276,10 +276,10 @@ SET_MAKE =
 SHELL = /bin/bash
 STRIP = strip
 VERSION = 0.1
-abs_builddir = /home/natalia/eltex/checkers/checkers temp/src
-abs_srcdir = /home/natalia/eltex/checkers/checkers temp/src
-abs_top_builddir = /home/natalia/eltex/checkers/checkers temp
-abs_top_srcdir = /home/natalia/eltex/checkers/checkers temp
+abs_builddir = /home/natalia/eltex/checkers/checkers/src
+abs_srcdir = /home/natalia/eltex/checkers/checkers/src
+abs_top_builddir = /home/natalia/eltex/checkers/checkers
+abs_top_srcdir = /home/natalia/eltex/checkers/checkers
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_DUMPBIN = 
@@ -308,7 +308,7 @@ host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} '/home/natalia/eltex/checkers/checkers temp/install-sh'
+install_sh = ${SHELL} /home/natalia/eltex/checkers/checkers/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -328,10 +328,10 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-server_SOURCES = server.c server/inc/server.h inc/global.h
-client_SOURCES = client.c client/inc/client.h inc/global.h
+serverexe_SOURCES = server.c server/inc/server.h inc/global.h
+clientexe_SOURCES = client.c client/inc/client.h inc/global.h
 SUBDIRS = lib server/lib client/lib
-LDADD = lib/libvar.a server/lib/libinit.a server/lib/libcheck_msg.a server/lib/libmake_move.a server/lib/libsdata.a client/lib/libscreen.a client/lib/libcdata.a
+LDADD = lib/libvar.a server/lib/libinit.a server/lib/libcheck_msg.a server/lib/libmake_move.a server/lib/libsdata.a server/lib/libkill_list.a client/lib/libscreen.a client/lib/libcdata.a
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -432,13 +432,13 @@ clean-binPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-client$(EXEEXT): $(client_OBJECTS) $(client_DEPENDENCIES) $(EXTRA_client_DEPENDENCIES) 
-	@rm -f client$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(client_OBJECTS) $(client_LDADD) $(LIBS)
+clientexe$(EXEEXT): $(clientexe_OBJECTS) $(clientexe_DEPENDENCIES) $(EXTRA_clientexe_DEPENDENCIES) 
+	@rm -f clientexe$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(clientexe_OBJECTS) $(clientexe_LDADD) $(LIBS)
 
-server$(EXEEXT): $(server_OBJECTS) $(server_DEPENDENCIES) $(EXTRA_server_DEPENDENCIES) 
-	@rm -f server$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(server_OBJECTS) $(server_LDADD) $(LIBS)
+serverexe$(EXEEXT): $(serverexe_OBJECTS) $(serverexe_DEPENDENCIES) $(EXTRA_serverexe_DEPENDENCIES) 
+	@rm -f serverexe$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(serverexe_OBJECTS) $(serverexe_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)

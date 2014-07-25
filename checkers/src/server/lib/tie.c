@@ -12,7 +12,7 @@ int tie(int current,struct user **users){
   struct sdata dest;
   struct cdata answer;
 
-  memset(dest,0,sizeof(dest));
+  memset(&dest,0,sizeof(dest));
 
   if(current==0){
     strcpy(dest.c_msg.msg,"White");
@@ -33,17 +33,16 @@ int tie(int current,struct user **users){
   }
   if(!strcmp(answer.msg,"Yes") || !strcmp(answer.msg,"Y") || 
      !strcmp(answer.msg,"YES") || !strcmp(answer.msg,"yes")){
-    users[0]->count_ch=0;
-    users[1]->count_ch=0;
     return 1;
   }
 
-  memset(dest,0,sizeof(dest));
+
+  memset(&dest,0,sizeof(dest));
   strcat(dest.c_msg.msg,color);
   strcat(dest.c_msg.msg,text2);
   dest.c_msg.soc=users[current]->soc;
   if(send_sdata(dest)<0){
     return -1;
   }
-  return 1;
+  return 0;
 }
